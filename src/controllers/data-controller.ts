@@ -2,7 +2,12 @@ import { Request, Response } from "express";
 import { prisma } from "../index";
 
 export const handleData = async (req: Request, res: Response) => {
-  console.log(req.query);
+  
+  const rfidRaw = req.query.rfid as string;
+  const rfid = rfidRaw.replace(/-/g, ""); 
+  console.log(rfid);
+  
+
 
   res.status(200).json({
     status: "success",

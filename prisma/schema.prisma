@@ -8,5 +8,11 @@ datasource db {
 }
 
 model User {
-  uid String @id
+  uid     String @id
+  rfid    String
+  fname   String
+  lname   String
+  sid     String
+  v_model String
+  phone   String
 }
