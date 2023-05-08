@@ -14,6 +14,5 @@ app.use(express.json());
 const port = process.env.PORT || 8000;
 
 const server = app.listen(port, () =>
-  console.log(`
-🚀 Server ready at: http://localhost:${port}`)
+  console.log(`HTTPS Server Ready`)
 );
