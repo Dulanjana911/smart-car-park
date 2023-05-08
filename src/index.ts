@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { Prisma, PrismaClient } from "@prisma/client";
+import dataRouter from "./routers/data-router";
 const cors = require("cors");
 export const prisma = new PrismaClient();
 
@@ -10,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 //! Mount Routers
+app.use("/data", dataRouter);
 
 const port = process.env.PORT || 8000;
 
