@@ -11,11 +11,10 @@ export const getAllUsers = async (req: Request, res: Response) => {
 };
 
 export const createUser = async (req: Request, res: Response) => {
-  const { uid, rfid, uname, sid, vmodel, phone } = req.body;
+  const { rfid, uname, sid, vmodel, phone } = req.body;
 
   const newUser = await prisma.user.create({
-    data: {
-      uid: uid,
+    data: {      
       rfid: rfid,
       uname: uname,
       sid: sid,
