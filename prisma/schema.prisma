@@ -8,16 +8,18 @@ datasource db {
 }
 
 model User {
-  uid    Int    @id @default(autoincrement())
-  rfid   String @unique
-  uname  String
-  sid    String
-  vmodel String
-  phone  String
+  uid     Int       @id @default(autoincrement())
+  rfid    String    @unique
+  uname   String
+  sid     String
+  vmodel  String
+  phone   String
+  Parking Parking[]
 }
 
 model Parking {
-  pid Int @id @default(autoincrement())
-  rfid String
-  action String  
+  pid    Int    @id @default(autoincrement())
+  rfid   String
+  action String
+  user   User   @relation(fields: [rfid], references: [rfid])
 }
