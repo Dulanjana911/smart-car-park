@@ -18,22 +18,11 @@ export const handleData = async (req: Request, res: Response) => {
     },
   });
 
-  const userData = prisma.user.findFirst({
-    where:{
-      rfid:newParking.rfid
-    }
-  });
-
-  const data = {
-    event:newParking,
-    userData:userData
-  }
-
-  console.log(data);
+  
   
 
   res.status(200).json({
     status: "success",
-    data:data
+    data:newParking
   });
 };
