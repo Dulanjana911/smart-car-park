@@ -5,9 +5,11 @@ export const handleData = async (req: Request, res: Response) => {
   
   const rfidRaw = req.query.rfid as string;
   const rfid = rfidRaw.replace(/-/g, ""); 
-  
+
   const readerId = req.query.reader as string; 
-  console.log(rfid,readerId);
+  const action = readerId === "0" ? "entry" : "exit"  
+
+  console.log(rfid,action);
   
 
 

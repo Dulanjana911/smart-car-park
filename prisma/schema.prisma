@@ -19,5 +19,5 @@ model User {
 model Parking {
   pid Int @id @default(autoincrement())
   rfid String
-  status String  
+  action String  
 }
