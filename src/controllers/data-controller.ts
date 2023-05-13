@@ -11,9 +11,29 @@ export const handleData = async (req: Request, res: Response) => {
 
   console.log(rfid,action);
   
+  const newParking = await prisma.parking.create({
+    data: {      
+      rfid: rfid,
+      action:action
+    },
+  });
 
+  const userData = prisma.user.findFirst({
+    where:{
+      rfid:newParking.rfid
+    }
+  });
+
+  const data = {
+    event:newParking,
+    userData:userData
+  }
+
+  console.log(data);
+  
 
   res.status(200).json({
     status: "success",
+    data:data
   });
 };
