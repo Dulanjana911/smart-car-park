@@ -8,11 +8,16 @@ datasource db {
 }
 
 model User {
-  uid     String @id
-  rfid    String
-  fname   String
-  lname   String
-  sid     String
-  v_model String
-  phone   String
+  uid    Int    @id @default(autoincrement())
+  rfid   String @unique
+  uname  String
+  sid    String
+  vmodel String
+  phone  String
+}
+
+model Parking {
+  pid Int @id @default(autoincrement())
+  rfid String
+  status String  
 }
