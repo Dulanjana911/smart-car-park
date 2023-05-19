@@ -21,5 +21,6 @@ model Parking {
   pid    Int    @id @default(autoincrement())
   rfid   String
   action String
+  time DateTime @default(now())
   user   User   @relation(fields: [rfid], references: [rfid])
 }
