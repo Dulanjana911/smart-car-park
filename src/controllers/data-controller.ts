@@ -14,6 +14,7 @@ export const handleData = async (req: Request, res: Response) => {
   const newParking = await prisma.parking.create({
     data: {      
       rfid: rfid,
+      time:new Date(),
       action:action
     },
   });
